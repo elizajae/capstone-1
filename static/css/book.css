@@ -1,0 +1,70 @@
+.no-book {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 100px;
+}
+
+.book-page {
+    margin-top: 50px;
+}
+
+.top-bar {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #282539;
+    justify-content: space-between;
+    padding-bottom: 10px;
+}
+
+.top-bar button {
+    background: none;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    color: #fff;
+    font-size: 1rem;
+    background-color: #FFA500;
+    padding: 10px 20px;
+    border-radius: 10px;
+    text-decoration: none;
+    transition: all 0.3s ease-in-out;
+}
+
+.top-bar-right {
+    display: flex;
+    align-items: center;
+}
+
+.top-bar-right p {
+    display: flex;
+    align-items: center;
+    font-weight: 600;
+}
+
+.top-bar-right svg {
+    margin-left: 5px;
+}
+
+.list-select {
+    display: flex;
+    align-items: center;
+    margin-left: 20px;
+}
+
+.list-select select {
+    margin-left: 10px;
+    width: 150px;
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid #282539;
+    background-color: #282539;
+    color: #fff;
+}
+
+.book-top {
+    display: flex;
+    justify-content: space-between;
+}

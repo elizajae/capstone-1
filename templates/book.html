@@ -1,0 +1,105 @@
+{% extends 'base.html' %} {% block content %}
+
+<link
+  rel="stylesheet"
+  href="{{ url_for('static', filename='css/book.css') }}"
+/>
+
+<div class="book-page">
+  {% if book %}
+  <div class="top-bar">
+    <button onclick="window.history.back();">Back</button>
+    <div class="top-bar-right">
+      <p>
+        {% if not progress %}
+        <button style="margin-left: 1rem;"
+        onclick="window.location.href='/track/{{ book.id }}'"
+        >Track Progress</button>
+        {% else %}
+        <p style="margin-right: 10px;">
+          {{ progress.current_page }} / {{ progress.total_pages }} pages
+        </p>
+        {{ "%.2f" | format(progress.current_page / progress.total_pages * 100) }}%
+       
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+        >
+          <path
+            fill="none"
+            stroke="#1ff62c"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M10 20.777a8.942 8.942 0 0 1-2.48-.969M14 3.223a9.003 9.003 0 0 1 0 17.554m-9.421-3.684a8.961 8.961 0 0 1-1.227-2.592M3.124 10.5c.16-.95.468-1.85.9-2.675l.169-.305m2.714-2.941A8.954 8.954 0 0 1 10 3.223"
+          />
+        </svg>
+        <button style="margin-left: 1rem;"
+        onclick="window.location.href='/track/{{ book.id }}'"
+        >Track Progress</button>
+        {% endif %}
+      </p>
+      {% if lists %}
+      <div class="list-select">
+        <p>In List</p>
+        <form method="POST" id="list-select-form">
+          <select name="list" id="list">
+            <option value="none">None</option>
+            {% for list in lists %}
+              <option value="{{ list.id }}" {% if list.id == in_list %}selected{% endif %}>{{ list.name }}</option>
+            {% endfor %}
+          </select>
+        </form>
+      </div>
+      {% endif %}
+    </div>
+  </div>
+  <div class="book-exists">
+    <div class="book-top">
+      <div class="book-left">
+        <img
+          src="{{ book.volumeInfo.imageLinks.thumbnail }}&fife=h500"
+          alt="{{ book.volumeInfo.title }}"
+        />
+        <h2>{{ book.volumeInfo.title }}</h2>
+      </div>
+      <div class="book-right">
+        <div class="app-details"></div>
+      </div>
+    </div>
+    <div class="book-details">
+      <p>Author: {{ book.volumeInfo.authors[0] }}</p>
+      <p>Published: {{ book.volumeInfo.publishedDate }}</p>
+      <p>Pages: {{ book.volumeInfo.pageCount }}</p>
+      <p>Language: {{ book.volumeInfo.language }}</p>
+      <p>ISBN: {{ book.volumeInfo.industryIdentifiers[0].identifier }}</p>
+    </div>
+  </div>
+  {% else %}
+  <div class="no-book">
+    <h2>Book Not Found</h2>
+    <p
+      style="text-decoration: underline; cursor: pointer"
+      onclick="window.history.back();"
+    >
+      Go Back
+    </p>
+  </div>
+  {% endif %}
+</div>
+
+<script>
+  // Get a reference to the select element and the form element
+  var select = document.getElementById("list");
+  var form = document.getElementById("list-select-form");
+
+  // Add an event listener to the select element
+  select.addEventListener("change", function () {
+    // Submit the form when the select element changes
+    form.submit();
+  });
+</script>
+
+{% endblock %}

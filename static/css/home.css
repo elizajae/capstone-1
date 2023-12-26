@@ -1,0 +1,225 @@
+
+.home {
+    margin-top: 50px;
+}
+
+.home .home-header {
+    display: flex;
+    align-items: center;
+}
+
+.home .home-header h2 {
+    font-size: 2rem;
+    font-weight: 400;
+    margin-left: 20px;
+}
+
+.home .home-header svg {
+    width: 100px;
+    height: 100px;
+}
+
+.home-hero-img {
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    right: 0;
+    opacity: 0.3;
+    width: 250px;
+}
+
+.home-hero-left {
+    width: 250px;
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    left: -90px;
+    opacity: 0.3;
+}
+
+.mode-btns {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+    border: 1px solid #282539;
+    border-radius: 30px;
+    height: 50px;
+    padding: 5px;
+}
+
+.mode-btns button {
+    width: 50%;
+    background: none;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    border-radius: 30px;
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 1.3rem;
+    font-weight: 600;
+}
+
+.mode-btns button.active {
+    color: #0D0A14;
+    background-color: #e4e2f0;
+}
+
+.no-auth {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 100px;
+}
+
+.explore {
+    margin-top: 50px;
+}
+
+.explore h3 {
+    font-size: 1.5rem;
+    font-weight: 400;
+    margin-bottom: 20px;
+}
+
+.explore .sub {
+    opacity: 0.5;
+    margin-bottom: 30px;
+    font-size: 0.9rem;
+}
+
+
+.search-form {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.search-form input {
+    flex: 1;
+    height: 50px;
+    border: 1px solid #282539;
+    border-radius: 30px;
+    padding: 0 20px;
+    outline: none;
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: #fff;
+    background: none;
+}
+
+.results {
+    width: 100%;
+    margin-top: 50px;
+}
+
+.book-results {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 20px;
+}
+
+.book {
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+.book:hover {
+    transform: scale(1.05);
+}
+
+.book a {
+    text-decoration: none;
+}
+
+.book img {
+    width: 100%;
+    height: 300px;
+    object-position: center;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.book h4 {
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin-top: 10px;
+    color: #fff;
+    text-transform: uppercase;
+    opacity: 0.5;
+}
+
+.results-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.results-top a {
+    background: none;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    color: #fff;
+    font-size: 1rem;
+    background-color: #FFA500;
+    padding: 10px 20px;
+    border-radius: 30px;
+    text-decoration: none;
+    transition: all 0.3s ease-in-out;
+}
+
+.results-top a:hover {
+    opacity: 0.5;
+}
+
+.feed {
+    margin-top: 50px;
+}
+
+.feed .no-lists {
+    display: flex;
+    font-size: 1.2rem;
+    opacity: 0.5;
+}
+
+.feed .no-lists a {
+    margin-left: 5px;
+}
+
+.lists {
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+}
+
+.lists .list {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    background-color: #282539;
+    padding: 10px 20px;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+.lists .list:hover {
+    opacity: 0.5;
+}
+
+.lists .list {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: #fff;
+    font-size: 1.2rem;
+    font-weight: 500;
+}
+
+.lists .list svg {
+    margin-right: 5px;
+}

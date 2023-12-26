@@ -1,0 +1,70 @@
+
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+  }
+
+* {
+    font-family: 'EB Garamond', serif;
+    color: white;
+    box-sizing: border-box;
+}
+
+body {
+    background: linear-gradient(to bottom, #151021, #000);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    overflow: hidden;
+    overflow-y: scroll;
+}
+
+.app {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.navbar {
+    padding-top: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-logo {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+}   
+
+.navbar .right a {
+    color: #fff;
+    text-decoration: none;
+    margin-left: 20px;
+    font-size: 1.2rem;
+    font-weight: 400;
+    letter-spacing: 1px;
+    cursor: pointer;
+    border-bottom: 1px solid transparent;
+    transition: 0.3s ease-in-out;
+}
+
+.navbar .right a:hover {
+    color: #fff;
+    text-decoration: none;
+    margin-left: 20px;
+    font-size: 1.2rem;
+    font-weight: 400;
+    letter-spacing: 1px;
+    border-bottom: 1px solid #fff;
+}
+
+.nav-logo h1 {
+    margin-left: 10px;
+    color: #fff;
+    font-size: 1.5rem;
+    font-weight: 400;
+    text-decoration: none;
+    letter-spacing: 2px;
+}

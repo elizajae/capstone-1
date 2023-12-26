@@ -1,0 +1,35 @@
+{% extends 'base.html' %} {% block content %}
+
+<link
+  rel="stylesheet"
+  href="{{ url_for('static', filename='css/new_list.css') }}"
+/>
+
+<div class="new-list">
+  <h2>Create a new list</h2>
+  <p>Once you have created a list you can start tracking books.</p>
+
+  <form method="POST">
+    {{form.hidden_tag()}} {% for field in form if field.widget.input_type !=
+    'hidden' %}
+
+    <div>
+      {{field.label()}}
+      <div>{{field()}}</div>
+    </div>
+
+    {% endfor %} {% for field in form.errors %}
+    <div class="form-errors">
+      <ul>
+        {% for error in form.errors[field] %}
+        <li>{{ error }}</li>
+        {% endfor %}
+      </ul>
+    </div>
+    {% endfor %}
+
+    <button>Create</button>
+  </form>
+</div>
+
+{% endblock %}
