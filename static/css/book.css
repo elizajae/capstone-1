@@ -68,3 +68,40 @@
     display: flex;
     justify-content: space-between;
 }
+
+.list-books {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 20px;
+    margin-top: 20px;
+}
+
+.book {
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+.book:hover {
+    transform: scale(1.05);
+}
+
+.book a {
+    text-decoration: none;
+}
+
+.book img {
+    width: 100%;
+    height: 300px;
+    object-position: center;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.book h4 {
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin-top: 10px;
+    color: #fff;
+    text-transform: uppercase;
+    opacity: 0.5;
+}

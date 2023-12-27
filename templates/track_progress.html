@@ -15,8 +15,21 @@
     'hidden' %}
 
     <div>
-      {{field.label()}}
-      <div>{{field()}}</div>
+      {{field.label()}} {% if progress %}
+      <p style="margin-top: 20px">
+        Your previous progress was:
+        <span class="highlight" style="display: block; margin-top: 15px"
+          >{{progress.current_page}} pages read, or {{ "%.2f" |
+          format(progress.current_page / progress.total_pages * 100) }}%
+          complete</span
+        >
+      </p>
+      {% endif %}
+
+      <div>
+        {{field(value=progress.current_page, min=progress.current_page,
+        max=progress.total_pages)}}
+      </div>
     </div>
 
     {% endfor %} {% for field in form.errors %}

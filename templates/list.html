@@ -1,0 +1,34 @@
+{% extends 'base.html' %} {% block content %}
+
+<link
+  rel="stylesheet"
+  href="{{ url_for('static', filename='css/book.css') }}"
+/>
+
+<div class="list-view">
+  <h1>{{ list.name }}</h1>
+  <hr />
+
+  {% if books == [] %}
+  <div>
+    <h3>No books in this list yet.</h3>
+    <a href="/">Home</a>
+  </div>
+  {% endif %}
+
+  <div class="list-books">
+    {% for book in books %}
+    <div class="book">
+      <a href="/book/{{ book.id }}">
+        <img
+          src="{{ book.volumeInfo.imageLinks.thumbnail }}&fife=h500"
+          alt="{{ book.volumeInfo.title }}"
+        />
+        <h4>{{ book.volumeInfo.title }}</h4>
+      </a>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+
+{% endblock %}

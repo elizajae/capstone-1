@@ -435,8 +435,20 @@
     <div class="home-content">
       {% if explore == False %}
       <div class="feed">
-        <h2>Your Lists</h2>
-        <a href="/lists/new">Make a new list</a>
+        <div
+          style="
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+          "
+        >
+          <h2>Your Lists</h2>
+          <a href="/lists/new">Make a new list</a>
+        </div>
+        <p style="opacity: 0.5">
+          These are lists you created. Lists can be modified from the book page
+          or deleted from the list page.
+        </p>
         {% if lists %}
         <div class="lists">
           {% for list in lists %}
@@ -461,6 +473,23 @@
           </p>
           {% endif %}
         </div>
+
+        <h2>Your Recommendations</h2>
+        <p>These are books recommended based on other saved titles.</p>
+        <div class="list-books" style="margin-top: 50px">
+          {% for book in books %}
+          <div class="book">
+            <a href="/book/{{ book.id }}">
+              <img
+                src="{{ book.volumeInfo.imageLinks.thumbnail }}&fife=h500"
+                alt="{{ book.volumeInfo.title }}"
+              />
+              <h4>{{ book.volumeInfo.title }}</h4>
+            </a>
+          </div>
+          {% endfor %}
+        </div>
+
         {% endif %} {% if explore == True %}
         <div class="explore">
           <h3>Explore</h3>

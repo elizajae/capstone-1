@@ -1,0 +1,46 @@
+.xp-bar-container {
+  width: 100%;
+  background-color: #212127;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.xp-bar {
+  height: 10px;
+  background-color: #4CAF50;
+  text-align: center;
+  line-height: 30px;
+  color: white;
+  font-weight: bold;
+}
+
+.xp-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.xp-top .xp-text {
+  color: #8463DD !important;
+}
+
+.xp-section {
+  width: 100%;
+  background-color: #060408;
+  padding: 12px;
+  color: white;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  margin-top: 10px;
+  border-radius: 5px;
+  border: 1px solid #282539;
+}
+
+.tracked-books {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 20px;
+  margin-top: 20px;
+}

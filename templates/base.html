@@ -45,7 +45,15 @@
         </a>
         <div class="right">
           {% if 'user_id' in session %}
-          <a href="/logout">Logout</a>
+          <div style="display: flex; align-items: center">
+            <img
+              onclick="location.href='/profile'"
+              class="profile-img"
+              src="{{ url_for('static', filename='cozy_cat.png') }}"
+              alt="Profile"
+            />
+            <a href="/logout">Logout</a>
+          </div>
           {% else %}
           <a href="/login">Login</a>
           {% endif %} {% if 'user_id' not in session %}
@@ -54,7 +62,7 @@
         </div>
       </nav>
 
-      <div class="container">{% block content %} {% endblock %}</div>
+      <div class="container fade-in">{% block content %} {% endblock %}</div>
     </div>
   </body>
 </html>

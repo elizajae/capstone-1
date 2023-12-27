@@ -1,0 +1,46 @@
+{% extends 'base.html' %} {% block content %}
+
+<link
+  rel="stylesheet"
+  href="{{ url_for('static', filename='css/profile.css') }}"
+/>
+
+<link
+  rel="stylesheet"
+  href="{{ url_for('static', filename='css/book.css') }}"
+/>
+
+<div class="list-view">
+  <h1>Your Progression</h1>
+
+  <div class="xp-section">
+    <div class="xp-top">
+      <p>Lvl. {{level}} -> {{ level + 1}}</p>
+      <p class="xp-text">{{experience}} / {{xp_to_next_level}}XP</p>
+    </div>
+
+    <div class="xp-bar-container">
+      <div
+        class="xp-bar"
+        style="width: {{ (experience / xp_to_next_level) * 100}}%;"
+      ></div>
+    </div>
+  </div>
+
+  <h2>Tracked</h2>
+  <div class="tracked-books">
+    {% for book in books %}
+    <div class="book">
+      <a href="/book/{{ book.id }}">
+        <img
+          src="{{ book.volumeInfo.imageLinks.thumbnail }}&fife=h500"
+          alt="{{ book.volumeInfo.title }}"
+        />
+        <h4>{{ book.volumeInfo.title }}</h4>
+      </a>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+
+{% endblock %}

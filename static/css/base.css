@@ -68,3 +68,40 @@ body {
     text-decoration: none;
     letter-spacing: 2px;
 }
+
+.highlight {
+    color: #99A78F;
+    font-size: 1.2rem;
+    font-weight: 400;
+    text-decoration: none;
+}
+
+.fade-in {
+    opacity: 0;
+    animation: fadeIn 1s ease forwards;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+.profile-img {
+    width: 50px;
+    height: 50px;
+    border: 1px solid transparent;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 10px;
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+}
+
+.profile-img:hover {
+    /* Neon orange */
+    border: 1px solid #fff;
+}
