@@ -52,6 +52,8 @@ class UserListBook(db.Model):
     book_id = db.Column(db.String, nullable=False)
     isbn = db.Column(db.String, nullable=False)
 
+    list = db.relationship('UserList', back_populates='books')
+
     def to_dict(self):
         return {
             "id": self.id,
@@ -77,6 +79,8 @@ class UserList(db.Model):
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
     user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
     name = db.Column(db.String, nullable=False)
+
+    books = db.relationship('UserListBook', back_populates='list')
 
     def to_dict(self):
         return {
