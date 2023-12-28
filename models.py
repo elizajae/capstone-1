@@ -95,6 +95,12 @@ class UserList(db.Model):
     def get_user_lists(cls, user_id):
         return cls.query.filter_by(user_id=user_id).all()
 
+    @classmethod
+    def delete_by_id(cls, id):
+        UserListBook.query.filter_by(list_id=id).delete()
+        cls.query.filter_by(id=id).delete()
+        db.session.commit()
+
 
 class ProgressEntry(db.Model):
     __tablename__ = "progress_entries"

@@ -49,9 +49,10 @@ def get_level_threshold(level):
 
 def determine_level(xp):
     level = 0
+
     while xp >= get_level_threshold(level):
-        xp -= get_level_threshold(level)
         level += 1
+
     return level
 
 
@@ -439,6 +440,14 @@ def profile():
 
     level = determine_level(xp)
 
-    xp_to_next_level = get_level_threshold(level) - xp
+    xp_to_next_level = get_level_threshold(level)
 
     return render_template("profile.html", experience=xp, level=level, xp_to_next_level=xp_to_next_level, books=books_meta)
+
+
+@app.route("/lists/delete/<list_id>", methods=["POST"])
+def delete_list(list_id):
+
+    UserList.delete_by_id(list_id)
+
+    return True

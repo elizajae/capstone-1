@@ -6,7 +6,10 @@
 />
 
 <div class="list-view">
-  <h1>{{ list.name }}</h1>
+  <div class="list-top">
+    <h1>{{ list.name }}</h1>
+    <button onclick="deleteList({{ list.id }})">Delete List</button>
+  </div>
   <hr />
 
   {% if books == [] %}
@@ -30,5 +33,18 @@
     {% endfor %}
   </div>
 </div>
+<script>
+  function deleteList(id) {
+    if (!confirm("Are you sure you want to delete this list?")) {
+      return;
+    }
+
+    fetch(`/lists/delete/` + id, {
+      method: "POST",
+    }).then((result) => {
+      window.location.href = "/";
+    });
+  }
+</script>
 
 {% endblock %}

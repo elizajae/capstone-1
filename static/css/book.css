@@ -105,3 +105,23 @@
     text-transform: uppercase;
     opacity: 0.5;
 }
+
+.list-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.list-top button {
+    background: none;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    color: #fff;
+    font-size: 1rem;
+    background-color: #FFA500;
+    padding: 10px 20px;
+    border-radius: 10px;
+    text-decoration: none;
+    transition: all 0.3s ease-in-out;
+}
