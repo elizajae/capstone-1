@@ -1,3 +1,5 @@
+import os
+
 from flask import Flask, render_template, request, redirect, url_for, flash, session
 
 from bs4 import BeautifulSoup
@@ -9,7 +11,14 @@ from models import db, connect_db, User, UserList, ProgressEntry, UserListBook
 from forms import RegisterForm, LoginForm, NewListForm, TrackProgressForm
 
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:2329@localhost/bookify-app'
+
+database_uri = os.environ.get('SQLALCHEMY_DATABASE_URI')
+
+if database_uri is None:
+    raise ValueError("SQLALCHEMY_DATABASE_URI environment variable is not set")
+
+app.config['SQLALCHEMY_DATABASE_URI'] = database_uri
+
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['SQLALCHEMY_ECHO'] = False
 app.config['SECRET_KEY'] = 'bookify-secret'
